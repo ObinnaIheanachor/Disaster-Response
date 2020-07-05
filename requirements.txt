@@ -15,7 +15,7 @@ backports.functools-lru-cache==1.4
 backports.weakref==1.0rc1
 bcrypt==3.1.6
 beautifulsoup4==4.6.0
-bleach==2.1.4
+bleach==3.1.4
 blinker==1.4
 bokeh==0.12.13
 boto==2.48.0
