@@ -12,11 +12,12 @@ In this project, using disaster data from [Figure Eight](https://www.figure-eigh
 To install the flask app, you will need:
 
 python3
-python packages in the [requirements.txt file](https://github.com/ObinnaIheanachor/Disaster-Response/blob/master/requirements.txt)
+python packages in the [requirements.txt file](https://github.com/ObinnaIheanachor/Disaster-Response/blob/master/requirements.txt).
 Install the packages with
 
 pip install -r requirements.txt
-To create an environment using: conda create --name --file requirements.txt
+
+You can create a virtal environment using: conda create --name --file requirements.txt
 
 ## Project Components
 There are three components for this project:
