@@ -19,6 +19,7 @@ import re
 import nltk
 from sklearn.base import BaseEstimator, TransformerMixin
 from sklearn.model_selection import train_test_split
+from sklearn.model_selection import GridSearchCV
 from sklearn.multioutput import MultiOutputClassifier
 from sklearn.ensemble import AdaBoostClassifier
 from sklearn.feature_extraction.text import CountVectorizer, TfidfTransformer
@@ -105,7 +106,7 @@ def build_model():
     This function output is a Scikit ML Pipeline that process text messages
     according to NLP best-practice and apply a classifier.
     """
-    model = Pipeline([
+    pipeline = Pipeline([
         ('features', FeatureUnion([
 
             ('text_pipeline', Pipeline([
@@ -118,6 +119,12 @@ def build_model():
 
         ('clf', MultiOutputClassifier(AdaBoostClassifier()))
     ])
+    # parameters
+    parameters = {'features__text_pipeline__tfidf__use_idf': (True, False),
+                  'features__text_pipeline__vect__max_df': (0.75, 1.0)
+
+}
+    model = GridSearchCV(pipeline, param_grid=parameters, n_jobs=1, verbose=2, cv=3)
 
     return model
 
